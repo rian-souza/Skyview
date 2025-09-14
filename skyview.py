@@ -1,3 +1,5 @@
+import json
+
 registro_externo = []
 
 registro_sistemasolar = [{
@@ -121,4 +123,14 @@ class Constelacao:
     self.historia = historia
 
   def __str__(self):
-    return f"Constelação: {self.nome}\nHistória: {self.historia}\nHemisfério: {self.hemisferio}\nEstrelas Principais: {self.estrelas_principais}\nÁrea: {self.area}\nFamília: {self.familia}\nTipo: {self.tipo}\nMitologia: {self.mitologia}\nMagnitude Limite: {self.magnitude_limite}\nObservável em: {self.observavel_em}\nCoordenadas: {self.coordenadas}\nObjetos Celestes: {self.obj_celestes}\nHistória: {self.historia}"
+    return f"Constelação: {self.nome}\nHistória {self.historia}\nHemisfério: {self.hemisferio}\nEstrelas Principais: {self.estrelas_principais}\nÁrea: {self.area}\nFamília: {self.familia}\nTipo: {self.tipo}\nMitologia: {self.mitologia}\nMagnitude Limite: {self.magnitude_limite}\nObservável em: {self.observavel_em}\nCoordenadas: {self.coordenadas}\nObjetos Celestes: {self.obj_celestes}\nHistória: {self.historia}"
+  
+with open("dados_firmamento.json", encoding="utf-8") as f:
+    dados = json.load(f)
+
+dados_firmamentos = [Constelacao(**dado) for dado in dados]
+
+
+registro_alfacentauri = []
+
+
